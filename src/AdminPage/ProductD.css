@@ -1,0 +1,164 @@
+ /* .product-page {
+    display: flex;
+    justify-content: end;
+    margin-left: 200px;
+    padding: 50px;
+  }
+  
+  .product-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .product-image img {
+    width: 350px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .product-details {
+    flex: 1;
+    margin-left: 50px;
+  }
+  
+  .product-details h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .product-details p {
+    font-size: 1.1rem;
+    margin: 10px ;
+  }
+  
+  .product-actions {
+    margin-top: 30px;
+  }
+  
+  .product-actions .btn {
+    padding: 10px 1px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .back-btn {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .edit-btn {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .back-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+  }
+
+ */
+
+
+ /* Style for the entire product page */
+/* .product-page {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  min-height: 100vh;
+  background-color: #76ace2;
+} */
+
+/* Container for product details */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 100%;
+  margin-left: 350px;
+}
+
+/* Style for product image */
+.product-image {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Style for product details */
+.product-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-details h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-details p strong {
+  color: #333;
+}
+
+/* Style for buttons */
+.product-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.product-actions .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-actions .back-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.product-actions .edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.product-actions .delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.product-actions .btn:hover {
+  opacity: 0.9;
+}

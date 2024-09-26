@@ -1,0 +1,154 @@
+.container {
+  margin-top: 5rem;
+  padding: 1rem;
+}
+
+/* Product detail layout */
+.product-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  margin-left: 200px;
+  
+}
+
+/* Left side (image and name) */
+.product-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.product-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Right side (details and buttons) */
+.product-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-category,
+.product-price,
+.product-brand,
+.product-rating,
+.product-reviews {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-rating .text-warning {
+  color: #ffc107;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+/* Related Products Styles */
+.related-products {
+  margin-top: 2rem;
+}
+
+.related-products h3 {
+  margin-bottom: 1rem;
+}
+
+.related-products-list {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.related-product-card {
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.related-product-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.related-product-name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.related-product-price {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.btn-viewdetailes {
+  display: flex;
+  justify-content: center; /* Center-aligns the button */
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .related-product-card {
+    width: 100%;
+  }
+}

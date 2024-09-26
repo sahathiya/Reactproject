@@ -1,0 +1,12 @@
+.button-pleaselogin {
+    background-color:maroon !important;
+    color: white !important;
+}
+.no-user{
+    background-color: rgb(186, 106, 186)!important;
+    height: 100vh;
+    text-align: center;
+}
+.text{
+    color: maroon;
+}

@@ -1,0 +1,26 @@
+.navbar {
+  background-color: rgb(206, 159, 206); /* Customize navbar background color */
+  border-bottom: 1px solid #ddd; /* Add a subtle bottom border */
+}
+
+.nav-link {
+  margin-right: 20px; /* Space between links */
+  color:white; /* Customize link color */
+}
+
+.nav-link:hover {
+  color: purple; /* Link color on hover */
+}
+
+.nav-link > svg {
+  vertical-align: middle; /* Align icons with text */
+  margin-right: 5px; /* Space between icon and text */
+}
+.navbar-toggler{
+  outline: none;
+}
+.navbar-toggler:hover{
+  background-color: transparent;
+}
+
+
