@@ -80,7 +80,20 @@
       "cpassword": "C1@abcde",
       "admin": false,
       "block": false,
-      "cart": []
+      "cart": [
+        {
+          "id": "3",
+          "name": "Men’s Classic Mint",
+          "type": "men",
+          "image": "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-020-600x600.jpg",
+          "price": "18",
+          "qty": 11,
+          "description": "Mint-colored sneakers for a stylish look.",
+          "brand": "Recycled Shoes",
+          "rating": 4.6,
+          "reviews": 10
+        }
+      ]
     },
     {
       "id": "3117",
@@ -370,9 +383,7 @@
       "description": " They're stylish versatile and incredibly comfortable",
       "brand": "Recycled Shoes",
       "rating": "5",
-      "reviews": "8",
-      "category": "n",
-      "": "8"
+      "reviews": "8"
     },
     {
       "id": "b9a6",
@@ -396,6 +407,5 @@
       "rating": "5",
       "reviews": "12"
     }
-    
   ]
 }
