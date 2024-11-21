@@ -16,11 +16,11 @@ import api from "../axios/api";
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState("");
-  const[search,setsearch]=useState("")
+  const [search, setsearch] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
-  const { products, current, setCurrent } = useContext(MyLogin);
+  const { current, setCurrent } = useContext(MyLogin);
   const { cart } = useContext(MyCart);
   const cartLength = cart ? cart.length : 0;
   const profile = current ? current.username : "";
@@ -42,48 +42,28 @@ function Header() {
     };
   }, []);
 
-  // const handleSearch = (e) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault();
-  //     const query = searchQuery.toLowerCase();
+  const Search = async (e) => {
+    const query = e.target.value;
+    setsearch(query);
+    try {
+      if (query) {
+        const res = await api.post(`/search?q=${query}`);
+        console.log("API Response:", res.data);
+        setSearchQuery(res.data);
+      } else {
+        setSearchQuery([]);
+      }
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
+  };
 
-  //     if (query === "men") {
-  //       navigate("/men");
-  //     } else if (query === "women") {
-  //       navigate("/women");
-  //     } else {
-  //       const product = products.result.find(
-  //         (product) => product.name.toLowerCase() === query
-  //       );
-  //       if (product) {
-  //         navigate(`/collectiondetailes/${product.id}`);
-  //       } else {
-  //         navigate(`/search`);
-  //       }
-  //     }
-  //     setSearchQuery("");
-  //   }
-  // };
-const Search=async(e)=>{
-  try {
-    const res=await api.post(`/search?q=${e.target.value}`)
-    console.log("ressssssssssssssssssss",res);
-    setSearchQuery(res.data)
-    setsearch(e.target.value)
+  console.log("searchQuery", search);
 
-  } catch (error) {
-    console.log(error);
-    
-  }
-
-}
-console.log("searchQuery",searchQuery);
-
-
-const serachbutton = ()=>{
-  setSearchQuery([])
-  setsearch("")
-}
+  const serachbutton = () => {
+    setSearchQuery([]);
+    setsearch("");
+  };
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
   };
@@ -163,51 +143,44 @@ const serachbutton = ()=>{
             LOOKBOOK
           </NavLink>
         </div>
-{/* 
-        <form className="flex items-center">
+
+        <div className="hidden md:flex relative">
           <input
-            type="search"
-            placeholder="Search"
-            className="rounded-full px-2 py-1 focus:outline-none text-white placeholder-gray-400 bg-blue-950 border border-white"
-            
+            type="text"
+            value={search}
+            placeholder="Search..."
+            className="px-4 py-2 rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-950 transition duration-200 w-full"
             onChange={Search}
-            
           />
-        </form> */}
+          <button
+            onClick={serachbutton}
+            className="absolute right-0 top-0 bottom-0 flex items-center justify-center px-3 py-2 bg-gray-500 text-white rounded-full hover:bg-blue-950 transition duration-200"
+          >
+            {search ? <CiCircleRemove /> : <CiSearch />}
+          </button>
+          
+          {searchQuery.length > 0 && (
+            <div className="absolute top-full left-0 w-96 bg-white border border-gray-300 shadow-lg rounded-lg mt-2 z-10 h-72 overflow-auto">
+              {searchQuery.map((item, index) => (
+                <NavLink
+                  key={index}
+                  to={`/collectiondetailes/${item._id}`}
+                  className="flex items-center space-x-4 px-4 py-2 text-gray-700 hover:bg-blue-100 no-underline "
+                  onClick={() => setSearchQuery([])} 
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-10 h-10 object-cover rounded-md"
+                  />
+                  <span>{item.name}</span>
+                </NavLink>
+              ))}
+            </div>
+          )}
+        </div>
 
-<div className="hidden md:flex relative">
-  <input
-    type="text"
-    value={search}
-    placeholder="Search..."
-    className="px-4 py-2 rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 w-full"
-    onChange={Search}
-  />
-  <button onClick={serachbutton} className="absolute right-0 top-0 bottom-0 flex items-center justify-center px-3 py-2 bg-gray-500 text-white rounded-full hover:bg-blue-600 transition duration-200">
-    {search?(<CiCircleRemove />):(<CiSearch />)}
-  </button>
-  {/* Search Results Dropdown */}
-  {searchQuery.length > 0 && (
-    <div className="absolute top-full left-0 w-96 bg-white border border-gray-300 shadow-lg rounded-lg mt-2 z-10 h-72 overflow-auto">
-      {searchQuery.map((item, index) => (
-        <NavLink
-          key={index}
-          to={`/productdetails/${item._id}`} // Adjust path as per your routing
-          className="flex items-center space-x-4 px-4 py-2 text-gray-700 hover:bg-blue-100 no-underline "
-          onClick={() => setSearchQuery([])} // Clear search on selection
-        >
-          <img src={item.image} alt={item.name} className="w-10 h-10 object-cover rounded-md" />
-          <span>{item.name}</span>
-        </NavLink>
-      ))}
-    </div>
-  )}
-</div>
-
-
-
-
-        {current ?(
+        {current ? (
           <div className="flex items-center space-x-4">
             <NavLink to="/wishlist" className="relative text-2xl">
               <i className="fas fa-heart text-pink-500"></i>
@@ -285,11 +258,15 @@ const serachbutton = ()=>{
               )}
             </div>
           </div>
-        ):(<NavLink to='/login'><i
-          className={`fas fa-user text-2xl ${
-            isScrolled ? "text-white" : "text-blue-950"
-          }`}
-        ></i></NavLink>)}
+        ) : (
+          <NavLink to="/login">
+            <i
+              className={`fas fa-user text-2xl ${
+                isScrolled ? "text-white" : "text-blue-950"
+              }`}
+            ></i>
+          </NavLink>
+        )}
       </div>
     </nav>
   );

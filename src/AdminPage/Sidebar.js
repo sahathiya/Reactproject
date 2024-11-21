@@ -131,43 +131,43 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-40 bg-cyan-600 text-white   flex flex-col top-0 left-0   ">
+    <div className="min-h-screen w-40 bg-blue-950 text-white   flex flex-col top-0 left-0   ">
       {/* Profile Section */}
-      <div className="p-6 text-center border-b border-cyan-600 ">
+      <div className="p-6 text-center border-b border-white ">
         <img
           src="https://t3.ftcdn.net/jpg/06/17/13/26/240_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg"
           alt="Profile"
-          className="w-20 h-20 mx-auto rounded-full border-4 border-cyan-500"
+          className="w-20 h-20 mx-auto rounded-full border-4 border-white"
         />
         <h5 className="mt-4 text-lg font-semibold">Shahadiya</h5>
-        <p className="text-sm text-cyan-300">Administrator</p>
+        <p className="text-sm text-white">Administrator</p>
       </div>
 
       {/* Navigation Menu */}
       <nav className="flex-grow mt-4">
         <Link to="/" className="block no-underline">
-          <div className="flex items-center p-4 hover:bg-cyan-600 transition-colors text-white ">
+          <div className="flex items-center p-4 hover:bg-blue-900 transition-colors text-white ">
             <HiMiniSquares2X2 size={20} className="mr-4" />
             <span className="font-medium">Dashboard</span>
           </div>
         </Link>
 
         <Link to="/products" className="block no-underline">
-          <div className="flex items-center p-4 hover:bg-cyan-600 transition-colors  text-white">
+          <div className="flex items-center p-4 hover:bg-blue-900 transition-colors  text-white">
             <MdProductionQuantityLimits size={20} className="mr-4" />
             <span className="font-medium">Products</span>
           </div>
         </Link>
 
         <Link to="/userslist" className="block no-underline">
-          <div className="flex items-center p-4 hover:bg-cyan-600 transition-colors  text-white">
+          <div className="flex items-center p-4 hover:bg-blue-900 transition-colors  text-white">
             <FaUsers size={20} className="mr-4" />
             <span className="font-medium">Users</span>
           </div>
         </Link>
 
         <Link to="/orders" className="block no-underline">
-          <div className="flex items-center p-4 hover:bg-cyan-600 transition-colors  text-white">
+          <div className="flex items-center p-4 hover:bg-blue-900 transition-colors  text-white">
             <FaBoxOpen size={20} className="mr-4" />
             <span className="font-medium ">Orders</span>
           </div>
@@ -177,7 +177,7 @@ const Sidebar = () => {
           onClick={() => Adminlogout()}
           className="block cursor-pointer"
         >
-          <div className="flex items-center p-4 hover:bg-cyan-600 transition-colors">
+          <div className="flex items-center p-4 hover:bg-blue-900 transition-colors">
             <FaSignOutAlt size={20} className="mr-4" />
             <span className="font-medium">Log Out</span>
           </div>

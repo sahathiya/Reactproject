@@ -221,7 +221,7 @@ function UsersList() {
         {/* Table Wrapper */}
         <div className="overflow-x-auto bg-white shadow-lg rounded-lg border border-gray-200">
           <table className="min-w-full table-auto text-left">
-            <thead className="bg-indigo-600 text-white">
+            <thead className="bg-blue-950 text-white">
               <tr>
                 <th className="px-4 py-2 text-sm font-medium">Id</th>
                 <th className="px-4 py-2 text-sm font-medium">Username</th>
@@ -239,7 +239,7 @@ function UsersList() {
                     <td className="px-4 py-3 text-sm">
                       <button
                         onClick={() => navigate(`/usersdetailes/${user._id}`)}
-                        className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none"
+                        className="bg-blue-950 text-white px-4 py-2 rounded-md focus:outline-none"
                       >
                         View
                       </button>

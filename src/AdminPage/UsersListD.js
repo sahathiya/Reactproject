@@ -663,7 +663,7 @@ function UsersListD() {
     {/* User Details Section */}
     <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col space-y-6">
       <div className="flex items-center space-x-4 mb-6">
-        <FaUser className="text-5xl text-blue-500" />
+        <FaUser className="text-5xl text-blue-950" />
         <h3 className="text-3xl font-semibold">User Details</h3>
       </div>
       {userDetails ? (

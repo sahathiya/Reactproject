@@ -215,19 +215,19 @@ function ProductD() {
               {/* Action Buttons */}
               <div className="flex mt-6 space-x-4">
                 <button
-                  className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-md shadow"
+                  className="px-4 py-2 bg-blue-950 text-white rounded-md shadow"
                   onClick={handleBack}
                 >
                   Back to List
                 </button>
                 <button
-                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md shadow"
+                  className="px-4 py-2 bg-blue-950  text-white rounded-md shadow"
                   onClick={() => navigate(`/edit/${productDetails._id}`)}
                 >
                   Edit
                 </button>
                 <button
-                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md shadow"
+                  className="px-4 py-2 bg-blue-950 text-white rounded-md shadow"
                   onClick={handleDelete}
                 >
                   Delete

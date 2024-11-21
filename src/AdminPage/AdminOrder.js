@@ -312,7 +312,7 @@ function AdminOrder() {
     {/* Table Wrapper */}
     <div className="overflow-x-auto bg-white shadow-lg rounded-lg border border-gray-200 ">
       <table className="min-w-full table-auto text-left">
-        <thead className="bg-indigo-600 text-white ">
+        <thead className="bg-blue-950 text-white ">
           <tr>
           <th className="px-2 py-1 text-sm font-medium">User Name</th>
 <th className="px-2 py-1 text-sm font-medium">Order ID</th>
@@ -324,13 +324,7 @@ function AdminOrder() {
 
 
 
-            {/* <th className="px-4 py-2 text-sm font-medium">User Name</th>
-            <th className="px-4 py-2 text-sm font-medium">Order ID</th>
-            <th className="px-4 py-2 text-sm font-medium">Purchase Date</th>
-            <th className="px-4 py-2 text-sm font-medium">Amount</th>
-            <th className="px-4 py-2 text-sm font-medium">Payment</th>
-            <th className="px-4 py-2 text-sm font-medium">Shipping</th>
-            <th className="px-4 py-2 text-sm font-medium">Products</th> */}
+  
           </tr>
         </thead>
         <tbody className="bg-white">

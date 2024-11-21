@@ -2,20 +2,20 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000', // update this to your backend port
-  withCredentials: true, // allows credentials like cookies to be sent
+  baseURL: 'http://localhost:3000', 
+  withCredentials: true, 
   
 });
 
 const refreshtoken = async () => {
   try {
-    // Call refresh token API endpoint
+    
     const response = await api.post("/refreshtoken");
     console.log("Token refreshed successfully");
-    return response.data.accessToken; // Return the new token for further use
+    return response.data.accessToken; 
   } catch (error) {
     console.error("Error refreshing token:", error);
-    throw error; // Rethrow error to handle logout or fallback
+    throw error; 
   }
 };
 

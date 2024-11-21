@@ -418,7 +418,7 @@ const Products = () => {
           <h1 className="text-3xl font-bold text-gray-800">Products List</h1>
           <button
             onClick={() => navigate('/add')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded shadow"
+            className="bg-blue-950 text-white px-4 py-2 rounded shadow"
           >
             Add New +
           </button>
@@ -426,7 +426,7 @@ const Products = () => {
 
         {/* Dropdown for category selection */}
         <select
-          className="mb-6 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-purple-600 focus:outline-none"
+          className="mb-6 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-950 focus:outline-none"
           onChange={handleCategoryChange}
         >
           <option value="All">All</option>
@@ -437,7 +437,7 @@ const Products = () => {
         <div className="overflow-x-auto bg-white rounded-lg shadow">
           <table className="min-w-full table-auto border-collapse">
             <thead>
-              <tr className="bg-purple-600 text-white">
+              <tr className="bg-blue-950 text-white">
                 <th className="py-3 px-6 text-left">Id</th>
                 <th className="py-3 px-6 text-left">Image</th>
                 <th className="py-3 px-6 text-left">Name</th>
@@ -464,7 +464,7 @@ const Products = () => {
                     <td className="py-3 px-6 text-center">
                       <button
                         onClick={() => navigate(`/productdetailes/${product._id}`)}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow"
+                        className="bg-blue-950 text-white px-4 py-2 rounded shadow"
                       >
                         View
                       </button>

@@ -277,194 +277,195 @@ function Edit() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-purple-400 to-indigo-500">
-      <form
-        className="bg-white rounded-lg shadow-lg p-8 w-full max-w-4xl"
-        onSubmit={handleSubmit}
-      >
-        <h1 className="text-2xl font-bold text-center text-purple-600 mb-6">
-          Edit Product <FaEdit style={{ color: 'black' }} />
-        </h1>
+    <div className="min-h-screen flex justify-center items-center bg-white">
+  <form
+    className="bg-white rounded-lg shadow-lg p-4 w-full max-w-2xl"
+    onSubmit={handleSubmit}
+  >
+    <h1 className="text-xl font-bold text-center text-blue-950 mb-4">
+      Edit Product <FaEdit style={{ color: 'black' }} />
+    </h1>
 
-        {/* Two-column grid layout */}
-        <div className="grid grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div>
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Name:
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={edit.name}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="category"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Category:
-              </label>
-              <input
-                type="text"
-                id="category"
-                name="category"
-                value={edit.category}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="price"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Price:
-              </label>
-              <input
-                type="number"
-                id="price"
-                name="price"
-                value={edit.price}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="brand"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Brand:
-              </label>
-              <input
-                type="text"
-                id="brand"
-                name="brand"
-                value={edit.brand}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="qty"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Quantity:
-              </label>
-              <input
-                type="number"
-                id="qty"
-                name="qty"
-                value={edit.qty}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div>
-            <div className="mb-4">
-              <label
-                htmlFor="image"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Image:
-              </label>
-              <input
-                type="file"
-                id="image"
-                name="image"
-                onChange={handleImage}
-                className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
-              />
-              {edit.image && !image && (
-                <img src={edit.image} alt="Current Product" width="100" />
-              )}
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="rating"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Rating:
-              </label>
-              <input
-                type="number"
-                id="rating"
-                name="rating"
-                value={edit.rating}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="reviews"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Reviews:
-              </label>
-              <input
-                type="number"
-                id="reviews"
-                name="reviews"
-                value={edit.reviews}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Description:
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                value={edit.description}
-                onChange={handleChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                required
-              ></textarea>
-            </div>
-          </div>
+    {/* Two-column grid layout */}
+    <div className="grid grid-cols-2 gap-4">
+      {/* Left Column */}
+      <div>
+        <div className="mb-3">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={edit.name}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
         </div>
 
-        <button
-          type="submit"
-          className="mt-6 w-full py-2 px-4 bg-purple-600 text-white rounded-md shadow hover:bg-purple-700 transition duration-200"
-        >
-          Save Changes
-        </button>
-      </form>
+        <div className="mb-3">
+          <label
+            htmlFor="category"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Category:
+          </label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            value={edit.category}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="price"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Price:
+          </label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={edit.price}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="brand"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Brand:
+          </label>
+          <input
+            type="text"
+            id="brand"
+            name="brand"
+            value={edit.brand}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="qty"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Quantity:
+          </label>
+          <input
+            type="number"
+            id="qty"
+            name="qty"
+            value={edit.qty}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+      </div>
+
+      {/* Right Column */}
+      <div>
+        <div className="mb-3">
+          <label
+            htmlFor="image"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Image:
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleImage}
+            className="mt-0.5 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-blue-950 "
+          />
+          {edit.image && !image && (
+            <img src={edit.image} alt="Current Product" width="80" />
+          )}
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="rating"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Rating:
+          </label>
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            value={edit.rating}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="reviews"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Reviews:
+          </label>
+          <input
+            type="number"
+            id="reviews"
+            name="reviews"
+            value={edit.reviews}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Description:
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            value={edit.description}
+            onChange={handleChange}
+            className="mt-0.5 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-950"
+            required
+          ></textarea>
+        </div>
+      </div>
     </div>
+
+    <button
+      type="submit"
+      className="mt-4 w-full py-2 px-4 bg-blue-950 text-white rounded-md shadow focus:ring-blue-950"
+    >
+      Save Changes
+    </button>
+  </form>
+</div>
+
   );
 }
 
