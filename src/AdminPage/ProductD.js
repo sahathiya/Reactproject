@@ -1,150 +1,7 @@
-// import React, { useState, useEffect } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import axios from 'axios';
-// import './ProductD.css'; 
-
-// function ProductD() {
-//   const { id } = useParams();
-//   const [productDetails, setProductDetails] = useState(null);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const fetchProductDetails = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:3000/Product/${id}`);
-//         setProductDetails(response.data);
-//       } catch (error) {
-//         console.error('Failed to fetch product details:', error);
-//       }
-//     };
-
-//     fetchProductDetails();
-//   }, [id]);
-
-//   const handleBack = () => navigate('/products');
-
-//   const handleDelete = async () => {
-//     try {
-//       await axios.delete(`http://localhost:3000/Product/${id}`);
-//       navigate('/products');
-//     } catch (error) {
-//       console.error('Failed to delete the product:', error);
-//     }
-//   };
-
-//   return (
-//     <div className="product-page">
-//       {productDetails ? (
-//         <div className="product-container">
-//           <div className="product-image">
-//             <img src={productDetails.image} alt={productDetails.name} />
-//           </div>
-//           <div className="product-details">
-//             <h2>{productDetails.name}</h2>
-//             <p>{productDetails.description}</p>
-//             <p><strong>Category:</strong> {productDetails.type}</p>
-//             <p><strong>Price:</strong> ${productDetails.price}</p>
-//             <p><strong>Brand:</strong> {productDetails.brand}</p>
-//             <p><strong>Rating:</strong> {productDetails.rating}</p>
-//             <p><strong>Reviews:</strong> {productDetails.reviews}</p>
-
-//             <div className="product-actions">
-//               <button className="btn back-btn" onClick={handleBack}>Back to List</button>
-//               <button className="btn edit-btn" onClick={() => navigate(`/edit/${productDetails.id}`)}>Edit</button>
-//               <button className="btn delete-btn" onClick={handleDelete}>Delete</button>
-//             </div>
-//           </div>
-//         </div>
-//       ) : (
-//         <p>Product not found</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default ProductD;
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import axios from 'axios';
-// import './ProductD.css'; 
-// import api from '../axios/api';
-
-// function ProductD() {
-//   const { id } = useParams();
-//   const [productDetails, setProductDetails] = useState(null);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const fetchProductDetails = async () => {
-//       try {
-//         const response = await api.get(`/admin/productbyId/${id}`);
-//         console.log("individualproduct",response);
-        
-//         setProductDetails(response.data.products);
-//       } catch (error) {
-//         console.error('Failed to fetch product details:', error);
-//       }
-//     };
-
-//     fetchProductDetails();
-//   }, [id]);
-
-//   const handleBack = () => navigate('/products');
-
-//   const handleDelete = async () => {
-//     try {
-//       await axios.delete(`/admin/remove/${id}`);
-//       navigate('/products');
-//     } catch (error) {
-//       console.error('Failed to delete the product:', error);
-//     }
-//   };
-
-//   return (
-//     <div className="product-page">
-//       {productDetails ? (
-//         <div className="product-container">
-//           <div className="product-image">
-//             <img src={productDetails.image} alt={productDetails.name} />
-//           </div>
-//           <div className="product-details">
-//             <h2>{productDetails.name}</h2>
-//             <p>{productDetails.description}</p>
-//             <p><strong>Category:</strong> {productDetails.type}</p>
-//             <p><strong>Price:</strong> ${productDetails.price}</p>
-//             <p><strong>Brand:</strong> {productDetails.brand}</p>
-//             <p><strong>Rating:</strong> {productDetails.rating}</p>
-//             <p><strong>Reviews:</strong> {productDetails.reviews}</p>
-
-//             <div className="product-actions">
-//               <button className="btn back-btn" onClick={handleBack}>Back to List</button>
-//               <button className="btn edit-btn" onClick={() => navigate(`/edit/${productDetails.id}`)}>Edit</button>
-//               <button className="btn delete-btn" onClick={handleDelete}>Delete</button>
-//             </div>
-//           </div>
-//         </div>
-//       ) : (
-//         <p>Product not found</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default ProductD;
-
-
-
-
-
-
-
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import api from '../axios/api';
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import api from "../axios/api";
+import { toast } from "react-toastify";
 
 function ProductD() {
   const { id } = useParams();
@@ -157,22 +14,22 @@ function ProductD() {
         const response = await api.get(`/admin/productbyId/${id}`);
         setProductDetails(response.data.products);
       } catch (error) {
-        console.error('Failed to fetch product details:', error);
+        console.error("Failed to fetch product details:", error);
       }
     };
 
     fetchProductDetails();
   }, [id]);
 
-  const handleBack = () => navigate('/products');
+  const handleBack = () => navigate("/products");
 
   const handleDelete = async () => {
     try {
-    const res=  await api.delete(`/admin/remove/${id}`);
-      toast.success(res.data.message)
-      navigate('/products');
+      const res = await api.delete(`/admin/remove/${id}`);
+      toast.success(res.data.message);
+      navigate("/products");
     } catch (error) {
-      toast.error('Failed to delete the product');
+      toast.error("Failed to delete the product");
     }
   };
 
@@ -200,7 +57,7 @@ function ProductD() {
                 <strong>Category:</strong> {productDetails.type}
               </p>
               <p className="mb-2">
-                <strong>Price:</strong> ${productDetails.price}
+                <strong>Price:</strong> ₹{productDetails.price}
               </p>
               <p className="mb-2">
                 <strong>Brand:</strong> {productDetails.brand}

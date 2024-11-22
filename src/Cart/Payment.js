@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { MyLogin } from "../useContext/Logincontext";
 import { MyCart } from "../useContext/Cartcontext";
 import api from "../axios/api";
 import { toast } from "react-toastify";
@@ -14,9 +13,8 @@ import {
 
 function Payment() {
   const navigate = useNavigate();
-  const { current } = useContext(MyLogin);
   const { setCart, setclientSecret, setorder } = useContext(MyCart);
-
+const {cart}=useContext(MyCart)
   const [userDetails, setUserDetails] = useState({
     Name: "",
     phoneNumber: "",
@@ -72,7 +70,7 @@ function Payment() {
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl space-y-6"
       >
-        {/* Full Name */}
+        
         <div className="relative flex items-center">
           <UserIcon className="w-6 h-6 text-gray-400 absolute left-3" />
           <input
@@ -201,13 +199,45 @@ function Payment() {
 
         <button
           type="submit"
-          onClick={handledelivary}
+          
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg w-full font-semibold"
         >
-          Save Delivery Address
+          Save Address
         </button>
       </form>
-    </div>
+
+      {/* Ordered Products */}
+      <div >
+                        <h3 className="text-xl font-semibold mb-2">Your Ordered Products</h3>
+                        <div className="space-y-4">
+                          {cart.map((product) => (
+                            <div
+                              key={product.productId._id}
+                              className="flex items-center border p-4 rounded-md"
+                            >
+                              <img
+                                src={product.productId.image}
+                                alt={product.productId.name}
+                                className="w-16 h-16 object-cover rounded-md"
+                              />
+                              <div className="ml-4 flex-1">
+                                <h4 className="font-bold">{product.productId.name}</h4>
+                                <p>Price: ₹{product.productId.price}</p>
+                                <p>Quantity: {product.quantity}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <button
+                          type="submit"
+                          onClick={handledelivary}
+                          className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-blue-600"
+                        >
+                          Proceed to Pay
+                        </button>
+                    </div>
+    
   );
 }
 

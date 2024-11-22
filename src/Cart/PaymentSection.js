@@ -12,7 +12,7 @@ function PaymentSection() {
   const { clientSecret } = useContext(MyCart);
 
   const option = { clientSecret };
-  console.log("option", option);
+  // console.log("option", option);
 
   return (
     <div className="bg-white mt-16">

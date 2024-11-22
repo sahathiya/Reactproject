@@ -27,7 +27,7 @@ function Footer() {
       
       <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full md:w-1/4 text-center md:text-left">
-          <h3 className="text-2xl font-bold text-pink-500 mb-4">My-Store</h3>
+          <h3 className="text-2xl font-bold text-pink-500 mb-4">iFOOT</h3>
           <p className="text-sm mb-4">
             Explore the latest trends in fashion and shop the best deals. Enjoy
             a seamless shopping experience with secure payment and fast
@@ -107,7 +107,7 @@ function Footer() {
 
      
       <div className="text-center text-sm text-gray-400 border-t border-gray-700 pt-6">
-        <p>&copy; {new Date().getFullYear()} My-Store. All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} iFOOT. All Rights Reserved.</p>
       </div>
     </div>
   );

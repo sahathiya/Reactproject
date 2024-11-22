@@ -6,23 +6,25 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 function Orders() {
   const { sessionID } = useParams();
-  const { orders, handleCancel } = useContext(MyCart);
-  console.log("order", sessionID);
+  const { orders, handleCancel,fetchorders } = useContext(MyCart);
+  console.log("order", orders);
 
-  const handleverify = async () => {
-    try {
-      console.log("sessionID", sessionID);
-
-      const res = await api.post("/verify", { sessionID: sessionID });
-      toast.success(res.data.message);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   useEffect(() => {
+    const handleverify = async () => {
+      try {
+        console.log("sessionID", sessionID);
+  
+        const res = await api.post("/verify", { sessionID: sessionID });
+        toast.success(res.data.message);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     handleverify();
+    fetchorders()
   }, []);
 
   return (
@@ -64,24 +66,51 @@ function Orders() {
                             {product.productId.name}
                           </h4>
                           <p className="text-gray-600">
-                            Price: ${product.productId.price}
+                            <strong> Price:</strong> ${product.productId.price}
                           </p>
                           <p className="text-gray-600">
-                            Quantity: {product.quantity}
+                            <strong>Quantity:</strong> {product.quantity}
                           </p>
                           <p className="text-gray-600">
-                            Brand: {product.productId.brand}
+                            <strong>Brand:</strong> {product.productId.brand}
                           </p>
                           <p className="text-gray-600">
-                            paymentStatus:{order.paymentStatus}
+                            <strong>paymentStatus:</strong>{" "}
+                            {order.paymentStatus}
                           </p>
                           <p className="text-gray-600">
-                            shippingStatus:{order.shippingStatus}
+                            <strong>shippingStatus:</strong>{" "}
+                            {order.shippingStatus}
                           </p>
                         </div>
                       </div>
+
+                      <div className="ml-4">
+                        <h5 className="text-gray-700 font-semibold mb-2">
+                          Shipping Address
+                        </h5>
+                        <p className="text-gray-600">
+                          <strong>Name:</strong> {order.address.Name}
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>PhoneNumber:</strong>
+                          {order.address.phoneNumber}
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>City:</strong> {order.address.city}
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>State:</strong>
+                          {order.address.state}
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>Pincode:</strong>
+                          {order.address.pincode}
+                        </p>
+                      </div>
                     </div>
                   ))}
+
               </div>
               <p className="text-right mt-6 text-gray-700 font-medium">
                 Total Amount: ${order.amount}
@@ -102,102 +131,3 @@ function Orders() {
 }
 
 export default Orders;
-
-// import React, { useContext, useEffect } from 'react';
-// import api from '../axios/api';
-// import { MyCart } from '../useContext/Cartcontext';
-// import { useParams } from 'react-router-dom';
-
-// function Orders() {
-//     const { sessionID } = useParams();
-//     const { orders, handleCancel } = useContext(MyCart);
-
-//     const handleVerify = async () => {
-//         try {
-//             const res = await api.post("/verify", { sessionID });
-//             alert(res.data.message);
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     };
-
-//     useEffect(() => {
-//         handleVerify();
-//     }, []);
-
-//     return (
-//         <div className="bg-gray-100 min-h-screen p-6">
-//             <h1 className="text-3xl font-bold text-center mb-10 mt-12 text-gray-800">Track the delivery of order #{sessionID}</h1>
-//             <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
-//                 {/* Left Section: Order Products */}
-//                 <div className="col-span-2 bg-white rounded-lg shadow-lg p-6">
-//                     <h2 className="text-2xl font-semibold text-gray-800 mb-6">Products Ordered</h2>
-//                     <div className="space-y-6">
-//                         {orders && orders.map((order) => (
-//                             <div key={order._id} className="border-b pb-6 mb-6">
-//                                 {order.products && order.products.map((product, index) => (
-//                                     <div
-//                                         key={index}
-//                                         className="flex items-start space-x-6 mb-4"
-//                                     >
-//                                         <img
-//                                             src={product.productId.image}
-//                                             alt={product.productId.name}
-//                                             className="w-24 h-24 rounded-lg object-cover"
-//                                         />
-//                                         <div>
-//                                             <h3 className="font-semibold text-lg text-gray-800">{product.productId.name}</h3>
-//                                             <p className="text-gray-600">Price: ${product.productId.price}</p>
-//                                             <p className="text-gray-600">Quantity: {product.quantity}</p>
-//                                             <p className="text-gray-600">Brand: {product.productId.brand}</p>
-//                                         </div>
-//                                     </div>
-//                                 ))}
-//                                 <p className="text-gray-700 mt-4">Total Amount: <span className="font-semibold">${order.amount}</span></p>
-//                                 <button
-//                                     className="bg-red-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-700 transition-all mt-4"
-//                                     onClick={() => handleCancel(order._id)}
-//                                 >
-//                                     Cancel Order
-//                                 </button>
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </div>
-
-//                 {/* Right Section: Order History */}
-//                 <div className="bg-white rounded-lg shadow-lg p-6">
-//                     <h2 className="text-2xl font-semibold text-gray-800 mb-6">Order History</h2>
-//                     <div className="space-y-4">
-//                         <div className="flex items-start space-x-4">
-//                             <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center">✔</div>
-//                             <div>
-//                                 <h4 className="font-semibold text-gray-800">Order Placed</h4>
-//                                 <p className="text-gray-600">19 Nov 2023, 10:45</p>
-//                             </div>
-//                         </div>
-//                         <div className="flex items-start space-x-4">
-//                             <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center">✔</div>
-//                             <div>
-//                                 <h4 className="font-semibold text-gray-800">Payment Accepted</h4>
-//                                 <p className="text-gray-600">19 Nov 2023, 10:47</p>
-//                             </div>
-//                         </div>
-//                         <div className="flex items-start space-x-4">
-//                             <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center">✔</div>
-//                             <div>
-//                                 <h4 className="font-semibold text-gray-800">Products Delivered</h4>
-//                                 <p className="text-gray-600">22 Nov 2023</p>
-//                             </div>
-//                         </div>
-//                         <button className="w-full bg-indigo-600 text-white py-3 rounded-lg mt-4 hover:bg-indigo-700">
-//                             Order Details
-//                         </button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default Orders;

@@ -24,14 +24,6 @@ api.interceptors.response.use(
   (response) => response, 
   async (error) => {
     const originalRequest = error.config;
-
-    // const refretokens = Cookies.get("refreshToken")
-    // const adminrefresh = Cookies.get("adminrefreshToken")
-    // if(!refretokens || !adminrefresh){
-    //   alert("login plese")
-    //   window.location.href = "/login";
-    //   console.log("refretokens",refretokens)
-    // }
     
 
     if (error.response?.status === 401 && !originalRequest._retry) {

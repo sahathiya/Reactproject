@@ -1,338 +1,125 @@
-// import React,{useContext,useState,useEffect} from 'react'
-// import { Link } from 'react-router-dom'
-// import './MenP.css'
-// import Footer from '../Components/Footer'
-// import { MyLogin } from '../useContext/Logincontext'
-// function MenP() {
-//     const[Menproducts,setMenproducts]=useState([])
-    
-//     const {products}=useContext(MyLogin)
-//     useEffect(()=>{
-//         setMenproducts(products&&products.filter(datas=>datas.type==="men"))
-//     },[products])
-//     return (
-//         <div className="container mt-5">
-//             <h1  style={{textAlign:'center'}}>MEN</h1>
-
-//             <div className="product-grid">
-//                 {Menproducts && Menproducts.map((datas) => (
-//                     <Link style={{textDecoration:'none'}} className="product-link" to={(`/collectiondetailes/${datas.id}`)} key={datas.id}>
-//                     <div className="product-card" >
-//                         <div>
-//                             <img src={datas.image} alt={datas.name} className="card-img-top product-image" />
-//                             <div>
-//                                 <h5 style={{textAlign:'center'}}>{datas.name}</h5>
-//                                 <p style={{textAlign:'center'}}>Price: ${datas.price}</p>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     </Link>
-//                 ))}
-//             </div>
-//             <Footer/>
-//         </div>
-        
-            
-    
-//     );
-
-   
-
-// }
-
-// export default MenP
-
-
-
-// import React, { useContext, useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import Footer from '../Components/Footer';
-// import { MyLogin } from '../useContext/Logincontext';
-
-// function MenP() {
-//     const [menProducts, setMenProducts] = useState([]);
-//     const { products } = useContext(MyLogin);
-
-//     useEffect(() => {
-//         setMenProducts(products && products.filter(data => data.type === "men"));
-//     }, [products]);
-
-//     return (
-//         <div className="container mx-auto mt-10 px-4">
-//             <h1 className="text-center text-4xl font-bold mb-8">MEN</h1>
-
-//             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-//                 {menProducts && menProducts.map((data) => (
-//                     <Link 
-//                         key={data.id}
-//                         to={`/collectiondetailes/${data.id}`} 
-//                         className="block text-center text-decoration-none"
-//                     >
-//                         <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-//                             <img src={data.image} alt={data.name} className="w-full h-48 object-cover" />
-//                             <div className="p-4">
-//                                 <h5 className="text-lg font-semibold">{data.name}</h5>
-//                                 <p className="text-gray-700">Price: ${data.price}</p>
-//                             </div>
-//                         </div>
-//                     </Link>
-//                 ))}
-//             </div>
-//             <Footer />
-//         </div>
-//     );
-// }
-
-// export default MenP;
-
-
-
-
-// import React, { useContext, useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import Footer from '../Components/Footer';
-// import { MyLogin } from '../useContext/Logincontext';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-solid-svg-icons';
-
-
-
-
-// function MenP() {
-//     const [menProducts, setMenProducts] = useState([]);
-//     const { products } = useContext(MyLogin);
-
-//     useEffect(() => {
-//         setMenProducts(products && products.filter(data => data.type === "men"));
-//     }, [products]);
-
-//     return (
-//         <div className="container mx-auto mt-12 px-4">
-//             <h1 className="text-center text-4xl font-bold text-gray-800 mb-10">Men's Collection</h1>
-
-//             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//                 {menProducts && menProducts.map((data) => (
-//                     <Link 
-//                         key={data.id}
-//                         to={`/collectiondetailes/${data.id}`} 
-//                         className="block text-center text-decoration-none"
-//                     >
-//                         <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl">
-//                             <div className="relative overflow-hidden">
-//                                 <img 
-//                                     src={data.image} 
-//                                     alt={data.name} 
-//                                     className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
-//                                 />
-//                                 <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
-//                                     New
-//                                 </span>
-//                             </div>
-//                             <div className="p-4 bg-gray-50">
-//                                 <h5 className="text-lg font-semibold text-gray-800 mb-1 truncate">{data.name}</h5>
-//                                 <p className="text-gray-600 mb-2">Price: <span className="text-gray-800 font-bold">${data.price}</span></p>
-//                                 <FontAwesomeIcon icon={faHeart} className="text-red-500 hover:text-red-600" />
-//                                 <button className="w-full bg-black text-white py-2 rounded hover:bg-blue-700 transition duration-300">
-//                                     View Details
-//                                 </button>
-                                
-//                             </div>
-//                         </div>
-//                     </Link>
-//                 ))}
-//             </div>
-//             <Footer />
-//         </div>
-//     );
-// }
-
-// export default MenP;
-
-
-
-// import React, { useContext, useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import Footer from '../Components/Footer';
-// import { MyLogin } from '../useContext/Logincontext';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
-// function MenP() {
-//     const [menProducts, setMenProducts] = useState([]);
-//     const { products } = useContext(MyLogin);
-
-//     useEffect(() => {
-//         setMenProducts(products && products.filter(data => data.type=== "men"));
-//     }, [products]);
-
-//     return (
-//         <div className="container mx-auto mt-12 px-4">
-//             {/* <h1 className="text-center text-4xl font-bold text-gray-800 mb-10">Men's Collection</h1> */}
-
-//             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//                 {menProducts && menProducts.map((data) => (
-//                     <Link 
-//                         key={data.id}
-//                         to={`/collectiondetailes/${data.id}`} 
-//                         className="block text-center text-decoration-none"
-//                     >
-//                         <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl relative">
-//                             <div className="relative overflow-hidden">
-//                                 <img 
-//                                     src={data.image} 
-//                                     alt={data.name} 
-//                                     className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
-//                                 />
-//                                 <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
-//                                     New
-//                                 </span>
-//                             </div>
-
-//                             {/* Wishlist and Cart Icons */}
-//                             <div className="absolute top-2 left-2 flex space-x-3">
-//                                 <button className="text-gray-600 bg-white p-2 rounded-full shadow hover:text-red-500 transition duration-300">
-//                                     <FontAwesomeIcon icon={faHeart} />
-//                                 </button>
-//                                 <button className="text-gray-600 bg-white p-2 rounded-full shadow hover:text-blue-500 transition duration-300">
-//                                     <FontAwesomeIcon icon={faShoppingCart} />
-//                                 </button>
-//                             </div>
-
-//                             <div className="p-4 bg-gray-50">
-//                                 <h5 className="text-lg font-semibold text-gray-800 mb-1 truncate">{data.name}</h5>
-//                                 <p className="text-gray-600 mb-2">Price: <span className="text-gray-800 font-bold">${data.price}</span></p>
-//                                 <button className="w-full bg-black text-white py-2 rounded hover:bg-blue-700 transition duration-300 mt-3">
-//                                     View Details
-//                                 </button>
-//                             </div>
-//                         </div>
-//                     </Link>
-//                 ))}
-//             </div>
-//             <Footer />
-//         </div>
-//     );
-// }
-
-// export default MenP;
-
-
-
-import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../Components/Footer';
-import { MyLogin } from '../useContext/Logincontext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { MyCart } from '../useContext/Cartcontext';
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
+import { MyLogin } from "../useContext/Logincontext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { MyCart } from "../useContext/Cartcontext";
 
 function MenP() {
-    const [menProducts, setMenProducts] = useState([]);
-    const { products,addToWishlist,wishlist,removeFromWishlist } = useContext(MyLogin);
-    const{addToCart}=useContext(MyCart)
-    const navigate=useNavigate()
-   
+  const [menProducts, setMenProducts] = useState([]);
+  const { products, addToWishlist, wishlist, removeFromWishlist } =
+    useContext(MyLogin);
+  const { addToCart } = useContext(MyCart);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (products && products.result) {
+      setMenProducts(
+        products && products.result.filter((data) => data.category === "men")
+      );
+    }
+  }, [products]);
 
+  
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const stars = [];
 
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-500" />
+      );
+    }
+    return stars;
+  };
 
-    useEffect(() => {
-        if(products&&products.result){
-            setMenProducts(products && products.result.filter(data => data.category === "men"));
-        }
-        
-    }, [products]);
+  const toggleWishlist = (data) => {
+    const isInWishlist = wishlist.some((item) => item._id === data._id);
 
+    if (isInWishlist) {
+      removeFromWishlist(data._id);
+    } else {
+      addToWishlist(data);
+    }
+  };
 
-     //  to render star icons based on rating
-     const renderStars = (rating) => {
-        const fullStars = Math.floor(rating);
-        const stars = [];
+  return (
+    <div className="container mx-auto mt-12 px-4 pt-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {menProducts &&
+          menProducts.map((data) => (
+            <div
+              key={data._id}
+              className="block text-center text-decoration-none"
+            >
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl relative">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={data.image}
+                    alt={data.name}
+                    className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                  <span className="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">
+                    New
+                  </span>
+                </div>
 
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(
-                <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-500" />
-            );
-        }
-        return stars;
-    };
+                
+                <div className="absolute top-2 left-2 flex space-x-3">
+                  <button
+                    onClick={() => toggleWishlist(data)}
+                    className="flex bg-transparent items-center justify-center p-2 transition duration-300"
+                  >
+                    {wishlist.some((item) => item._id === data._id) ? (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        className={`text-lg   text-pink-500`}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        className={`text-lg   text-gray-600`}
+                      />
+                    )}
+                  </button>
+                  <button
+                    className="text-gray-600  p-2   hover:text-pink-500 transition duration-300"
+                    onClick={() => addToCart(data._id)}
+                  >
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                  </button>
+                </div>
 
-
-
-    const toggleWishlist = (data) => {
-        const isInWishlist = wishlist.some(item => item._id === data._id);
-
-        if (isInWishlist) {
-            removeFromWishlist(data._id);
-            
-        } else {
-            addToWishlist(data);
-           
-        }
-    };
-
-
-
-    return (
-        <div className="container mx-auto mt-12 px-4 pt-20"> 
-       
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {menProducts && menProducts.map((data) => (
-                   <div key={data._id}
-                   className="block text-center text-decoration-none" >
-                        
-                        <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl relative">
-                            <div className="relative overflow-hidden">
-                                <img 
-                                    src={data.image} 
-                                    alt={data.name} 
-                                    className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
-                                />
-                                <span className="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">
-                                    New
-                                </span>
-                            </div>
-
-                            {/* Wishlist and Cart Icons */}
-                            <div className="absolute top-2 left-2 flex space-x-3">
-                                {/* <button className="text-gray-600  p-2  hover:text-pink-500 transition duration-300" onClick={()=>addToWishlist(data._id)}>
-                                    <FontAwesomeIcon icon={faHeart} />
-                                </button> */}
-
-
-                                <button onClick={() => toggleWishlist(data)} 
-  className="flex bg-transparent items-center justify-center p-2 transition duration-300"
->
-  {wishlist.some(item => item._id === data._id) ? (
-   <FontAwesomeIcon icon={faHeart} className={`text-lg   text-pink-500`} />
-  ) : (
-    <FontAwesomeIcon icon={faHeart} className={`text-lg   text-gray-600`} />
-  )}
-</button>
-                                <button className="text-gray-600  p-2   hover:text-pink-500 transition duration-300" onClick={()=>addToCart(data._id)}>
-                                    <FontAwesomeIcon icon={faShoppingCart} />
-                                </button>
-                            </div>
-
-                            <div className="p-4 bg-gray-50">
-                                <h5 className="text-lg font-semibold text-gray-800 mb-1 truncate">{data.name}</h5>
-                                <p className="text-gray-600 mb-2">Price: <span className="text-gray-800 font-bold">${data.price}</span></p>
-                                {/* Render star icons for rating */}
-                                <div className="flex justify-center mt-2 mb-4">
-                                    {renderStars(data.rating)}
-                                </div>
-                                <button className="w-full bg-blue-950 text-white py-2 rounded hover:bg-blue-700 transition duration-300 mt-3" onClick={()=>navigate(`/collectiondetailes/${data._id}`)}>
-                                    View Details
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                <div className="p-4 bg-gray-50">
+                  <h5 className="text-lg font-semibold text-gray-800 mb-1 truncate">
+                    {data.name}
+                  </h5>
+                  <p className="text-gray-600 mb-2">
+                    Price:{" "}
+                    <span className="text-gray-800 font-bold">
+                    ₹{data.price}
+                    </span>
+                  </p>
+                  {/* Render star icons for rating */}
+                  <div className="flex justify-center mt-2 mb-4">
+                    {renderStars(data.rating)}
+                  </div>
+                  <button
+                    className="w-full bg-blue-950 text-white py-2 rounded hover:bg-blue-700 transition duration-300 mt-3"
+                    onClick={() => navigate(`/collectiondetailes/${data._id}`)}
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
             </div>
-            <Footer />
-        </div>
-    );
+          ))}
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default MenP;

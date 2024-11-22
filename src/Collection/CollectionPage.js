@@ -118,7 +118,7 @@ function CollectionPage() {
                     <p className="text-gray-600">
                       Price:{" "}
                       <span className="text-gray-800 font-bold">
-                        ${product.price}
+                      ₹{product.price}
                       </span>
                     </p>
 

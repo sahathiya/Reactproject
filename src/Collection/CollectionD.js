@@ -80,7 +80,7 @@ function CollectionD() {
               />
 
               <span className="absolute top-4 left-4 bg-yellow-500 text-white font-bold px-3 py-1 text-sm rounded">
-                ${product.price}
+              ₹{product.price}
               </span>
             </div>
 
@@ -147,7 +147,7 @@ function CollectionD() {
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-2 right-2 bg-yellow-500 text-xs text-white font-bold px-2 py-1 rounded">
-                    ${product.price}
+                  ₹{product.price}
                   </span>
                 </div>
                 <div className="p-4 text-center">
