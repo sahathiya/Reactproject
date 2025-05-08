@@ -37,7 +37,6 @@ function ProductD() {
     <div className="min-h-screen bg-gray-100 flex justify-center items-center py-8">
       {productDetails ? (
         <div className="max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-          {/* Product Image */}
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2">
               <img
@@ -47,7 +46,6 @@ function ProductD() {
               />
             </div>
 
-            {/* Product Details */}
             <div className="p-6 md:w-1/2 flex flex-col">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 {productDetails.name}
@@ -69,7 +67,6 @@ function ProductD() {
                 <strong>Reviews:</strong> {productDetails.reviews}
               </p>
 
-              {/* Action Buttons */}
               <div className="flex mt-6 space-x-4">
                 <button
                   className="px-4 py-2 bg-blue-950 text-white rounded-md shadow"

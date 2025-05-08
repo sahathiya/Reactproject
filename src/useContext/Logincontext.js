@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../axios/api";
-import Cookies from "js-cookie";
+
 import { toast } from "react-toastify";
 export const MyLogin = createContext();
 
@@ -32,6 +32,12 @@ function Logincontext({ children }) {
         password: datas.password,
       });
       console.log(response);
+   const user=response.data.user
+   if(user.admin){
+    setadmin(user)
+   }else{
+    setCurrent(user)
+   }
    
   toast.success(response.data.message);
   setDatas({ username: "", password: "" });
@@ -52,42 +58,7 @@ function Logincontext({ children }) {
     }
   
 
-  useEffect(() => {
-    const userCookie = Cookies.get("user");
-    console.log("Cookie value:", userCookie);
-    console.log("allcokies", Cookies.get());
 
-    const adminCookie = Cookies.get("admin");
-    console.log("adminCookie", adminCookie);
-
-    if (userCookie) {
-      const userJson = userCookie.startsWith("j:")
-        ? userCookie.slice(2)
-        : userCookie;
-
-      try {
-        const user = JSON.parse(userJson);
-        setCurrent(user);
-      } catch (error) {
-        console.error("Failed to parse user cookie:", error);
-      }
-    } else if (adminCookie) {
-      const adminJson = adminCookie.startsWith("j:")
-        ? adminCookie.slice(2)
-        : adminCookie;
-
-      try {
-        const admin = JSON.parse(adminJson);
-        console.log("Parsed User Object:", admin);
-        console.log("Username:", admin.username);
-        setadmin(admin);
-      } catch (error) {
-        console.error("Failed to parse user cookie:", error);
-      }
-    } else {
-      console.log("user not found");
-    }
-  }, [datas]);
 
   const handleCreateAccount = () => {
     navigate("/signup");
@@ -99,15 +70,18 @@ function Logincontext({ children }) {
   const [loading, setloading] = useState(true);
   useEffect(() => {
     const fetchproducts = async () => {
+      setloading(true);
       try {
         const response = await api.get("/allproducts");
         console.log("allllll", response);
 
-        setProducts(response.data);
+        setProducts(response.data.result);
+        
       } catch (error) {
         console.log(error);
-      } finally {
-        setloading(false);
+        
+      } finally{
+        setloading(false)
       }
     };
     fetchproducts();

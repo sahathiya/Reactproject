@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import Footer from "../Components/Footer";
 import { MyLogin } from "../useContext/Logincontext";
@@ -14,17 +14,13 @@ function WomenP() {
   const { products, addToWishlist, removeFromWishlist, wishlist } =
     useContext(MyLogin);
   const { addToCart } = useContext(MyCart);
-  const navigate = useNavigate();
-
   
 
   useEffect(() => {
-    if (products && products.result) {
-      setWomenProducts(
-        products.result.filter((data) => data.category === "women")
-      );
+    if (products && products) {
+      setWomenProducts(products.filter((data) => data.category === "women"));
     } else {
-      setWomenProducts([]); 
+      setWomenProducts([]);
     }
   }, [products]);
 
@@ -38,7 +34,6 @@ function WomenP() {
     }
   };
 
-  
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const stars = [];
@@ -59,7 +54,10 @@ function WomenP() {
             className="block text-center text-decoration-none"
           >
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl relative">
-              <div className="relative overflow-hidden">
+              <NavLink
+                to={`/collectiondetailes/${data._id}`}
+                className="relative overflow-hidden"
+              >
                 <img
                   src={data.image}
                   alt={data.name}
@@ -68,9 +66,9 @@ function WomenP() {
                 <span className="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">
                   New
                 </span>
-              </div>
+              </NavLink>
 
-              {/* Wishlist and Cart Icons */}
+             
               <div className="absolute top-2 left-2 flex space-x-3">
                 <button
                   onClick={() => toggleWishlist(data)}
@@ -105,17 +103,9 @@ function WomenP() {
                   <span className="text-gray-800 font-bold">₹{data.price}</span>
                 </p>
 
-                
                 <div className="flex justify-center mt-2 mb-4">
                   {renderStars(data.rating)}
                 </div>
-
-                <button
-                  className="w-full bg-blue-950 text-white py-2 rounded hover:bg-blue-700 transition duration-300 mt-3"
-                  onClick={() => navigate(`/collectiondetailes/${data._id}`)}
-                >
-                  View Details
-                </button>
               </div>
             </div>
           </div>

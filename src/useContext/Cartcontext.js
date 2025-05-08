@@ -17,7 +17,7 @@ function Cartcontext({ children }) {
       const fetchCart = async () => {
         try {
           const response = await api.get(`/cartproducts`);
-          // console.log("responseuseeffect",response);
+         
 
           setCart(response.data.allcartitems.products);
         } catch (error) {

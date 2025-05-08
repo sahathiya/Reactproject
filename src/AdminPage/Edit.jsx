@@ -81,9 +81,7 @@ function Edit() {
           Edit Product <FaEdit style={{ color: "black" }} />
         </h1>
 
-        {/* Two-column grid layout */}
         <div className="grid grid-cols-2 gap-4">
-          {/* Left Column */}
           <div>
             <div className="mb-3">
               <label
@@ -176,7 +174,6 @@ function Edit() {
             </div>
           </div>
 
-          {/* Right Column */}
           <div>
             <div className="mb-3">
               <label

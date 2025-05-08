@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Footer from "../Components/Footer";
 import { MyLogin } from "../useContext/Logincontext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,10 +10,10 @@ import { MyCart } from "../useContext/Cartcontext";
 function CollectionPage() {
   const { products, addToWishlist, removeFromWishlist, wishlist, loading } =
     useContext(MyLogin);
-  console.log("loading", loading);
+
 
   const { addToCart } = useContext(MyCart);
-  const navigate = useNavigate();
+ 
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -69,14 +69,14 @@ function CollectionPage() {
     return (
       <div className="container mx-auto mt-12 px-4 pt-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.result &&
-            products.result.map((product) => (
+          {products &&
+            products.map((product) => (
               <div
                 key={product._id}
                 className="block text-center text-decoration-none"
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl">
-                  <div className="relative overflow-hidden">
+                  <NavLink   to ={`/collectiondetailes/${product._id}`} className="relative overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -85,7 +85,7 @@ function CollectionPage() {
                     <span className="absolute top-2 right-2 bg-blue-950 text-white text-xs font-bold px-2 py-1 rounded">
                       Best Seller
                     </span>
-                  </div>
+                  </NavLink>
 
                   <div className="absolute top-2 left-2 flex space-x-3">
                     <button
@@ -126,14 +126,7 @@ function CollectionPage() {
                       {renderStars(product.rating)}
                     </div>
 
-                    <button
-                      className="w-full  bg-blue-950 text-white py-2 rounded  transition duration-300"
-                      onClick={() =>
-                        navigate(`/collectiondetailes/${product._id}`)
-                      }
-                    >
-                      View Details
-                    </button>
+                    
                   </div>
                 </div>
               </div>

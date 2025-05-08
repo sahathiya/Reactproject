@@ -13,7 +13,7 @@ const Products = () => {
         const response = await api.get("/admin/products");
         const productList = response.data?.result || [];
         setProducts(productList);
-        setFilterProduct(productList); // Initialize filtered products with all products
+        setFilterProduct(productList);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -26,14 +26,14 @@ const Products = () => {
     const selectedCategory = event.target.value;
 
     if (selectedCategory === "All") {
-      setFilterProduct(products); // Show all products
+      setFilterProduct(products); 
     } else {
       try {
         const response = await api.get(
           `/admin/productbyCategory/${selectedCategory}`
         );
         const categoryProducts = response.data?.products || [];
-        setFilterProduct(categoryProducts); // Set filtered products
+        setFilterProduct(categoryProducts);
       } catch (error) {
         console.error("Error fetching category products:", error);
       }
@@ -53,7 +53,6 @@ const Products = () => {
           </button>
         </div>
 
-        {/* Dropdown for category selection */}
         <select
           className="mb-6 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-950 focus:outline-none"
           onChange={handleCategoryChange}

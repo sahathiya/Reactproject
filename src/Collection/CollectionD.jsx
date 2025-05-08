@@ -14,15 +14,15 @@ function CollectionD() {
   console.log("hjcvdhfd", products);
 
   useEffect(() => {
-    if (products.result) {
-      const fulldetailes = products.result.find(
+    if (products) {
+      const fulldetailes = products.find(
         (product) => product._id === id
       );
       setCollectionDetailes(fulldetailes ? [fulldetailes] : []);
       console.log("full", fulldetailes);
 
       if (fulldetailes) {
-        const related = products.result.filter(
+        const related = products.filter(
           (product) =>
             product.category === fulldetailes.category &&
             product._id !== fulldetailes.id

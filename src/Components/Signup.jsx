@@ -60,6 +60,7 @@ function RegistrationForm() {
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
+console.log("inputs...",inputs);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
